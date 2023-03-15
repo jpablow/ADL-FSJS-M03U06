@@ -9,7 +9,31 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="title">Conversor de monedas nacional</div>
+        <label for="fx_options">Selecciona el tipo de cambio</label><br>
+            <select name="fx_options" id="fx_options">
+                <option value="uf">Unidad de fomento (UF)</option>
+                <option value="dolar">Dólar observado</option>
+                <option value="dolar_intercambio">Dólar acuerdo</option>
+                <option value="euro">Euro</option>
+                <option value="utm">Unidad Tributaria Mensual (UTM)</option>
+            </select>
+        <div class="fx">Tipo de cambio
+            <div class="fx_conversion">
+                <div class="fx_from">1 <span id="fx_code">dolar</span></div>
+                <div class="fx_to"><span id="fx_clp">860</span> pesos</div>
+            </div>
+            <div class="img_conversion"></div>
+        </div>
+        <div class="calc">
+            <div class="calc_title">Ingresa la cantidad a cambiar</div>
+            <input type="number" id="input" placeholder="Ingresa el valor aquí"><br>
+            <button>Calcular</button>
+            <div class="calc_result">12 <span id="fx_code">dolar</span></div>
+        </div>
+        <div class="graph"></div>
+    </div>
     <script src="assets/script/script.js"></script>
 </body>
 </html>
