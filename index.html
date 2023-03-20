@@ -13,6 +13,7 @@
         <div class="title">Conversor de monedas nacional</div>
         <label for="fx_options">Selecciona el tipo de cambio</label><br>
             <select name="fx_options" id="fx_options">
+                <option value="" selected disabled ></option>
                 <option value="uf">Unidad de fomento (UF)</option>
                 <option value="dolar">Dólar observado</option>
                 <option value="euro">Euro</option>
@@ -29,7 +30,7 @@
             <div class="calc_title">Ingresa la cantidad a cambiar</div>
             <input type="number" id="input" placeholder="Ingresa el valor aquí"><br>
             <button>Calcular</button>
-            <div class="calc_result">12 <span id="fx_code">dolar</span></div>
+            <div id="calc_result">12 <span id="calc_code">dolar</span></div>
         </div>
         <div class="graph">
             <canvas id="myChart"></canvas>

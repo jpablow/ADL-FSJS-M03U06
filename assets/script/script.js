@@ -1,12 +1,36 @@
 const ctx = document.getElementById('myChart');
 const btn = document.querySelector("button");
+const input = document.querySelector("#input");
 const fx_code = document.querySelector("#fx_code");
+const calc_code = document.querySelector("#calc_code");
+const calc_result = document.querySelector("#calc_result");
 const fx_clp = document.querySelector("#fx_clp");
 let fx = document.querySelector("#fx_options");
-// var dataDay = [];
 let grafico;
 let etiquetas = [];
 let datos = [];
+
+function calcFX () {
+    switch (fx.value) {
+        case "uf":
+            var calc_val = Number(input.value) / Number(dataDay.uf.valor);
+            var c_code = fx.value.toUpperCase();
+            break;
+        case "dolar":
+            var calc_val = Number(input.value) / Number(dataDay.dolar.valor);
+            var c_code = toCapitalLetter(fx.value);
+            break;
+        case "euro":
+            var calc_val = Number(input.value) / Number(dataDay.euro.valor);
+            var c_code = toCapitalLetter(fx.value);
+            break;
+        case "utm":
+            var calc_val = Number(input.value) / Number(dataDay.utm.valor);
+            var c_code = fx.value.toUpperCase();
+    };
+    calc_result.innerHTML = calc_val; //Averiguar cómo redondear y dar formato de número.
+    calc_code.innerHTML = c_code; //Revisar por qué no aparece el código en el html, de hecho elimina el span.
+};
 
 async function getDayFX() {
     try {
@@ -18,7 +42,7 @@ async function getDayFX() {
     };
 };
 
-async function getFX() {
+async function getFX () {
     try {
         const res = await fetch("https://mindicador.cl/api/" + fx.value);
         const data = await res.json();
@@ -28,7 +52,8 @@ async function getFX() {
         };
         etiquetas.reverse();
         datos.reverse();
-        renderCanvas();
+        calcFX();
+        renderCanvas(); //Si el FX no ha cambiado, no renderizar.
     } catch (e) {
         alert(e.message);
     };
