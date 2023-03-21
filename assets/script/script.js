@@ -28,8 +28,8 @@ function calcFX () {
             var calc_val = Number(input.value) / Number(dataDay.utm.valor);
             var c_code = fx.value.toUpperCase();
     };
-    calc_result.innerHTML = calc_val; //Averiguar cómo redondear y dar formato de número.
-    calc_code.innerHTML = c_code; //Revisar por qué no aparece el código en el html, de hecho elimina el span.
+    calc_result.innerHTML = calc_val.toLocaleString("es-CL"); //Averiguar cómo redondear y dar formato de número.
+    calc_code.innerHTML = c_code;
 };
 
 async function getDayFX() {
@@ -101,19 +101,19 @@ function showFX() {
     switch (fx.value) {
         case "uf":
             fx_code.innerHTML = fx.value.toUpperCase();
-            fx_clp.innerHTML = dataDay.uf.valor;
+            fx_clp.innerHTML = dataDay.uf.valor.toLocaleString("es-CL");
             break;
         case "dolar":
             fx_code.innerHTML = toCapitalLetter(fx.value);
-            fx_clp.innerHTML = dataDay.dolar.valor;
+            fx_clp.innerHTML = dataDay.dolar.valor.toLocaleString("es-CL");
             break;
         case "euro":
             fx_code.innerHTML = toCapitalLetter(fx.value);
-            fx_clp.innerHTML = dataDay.euro.valor;
+            fx_clp.innerHTML = dataDay.euro.valor.toLocaleString("es-CL");
             break;
         case "utm":
             fx_code.innerHTML = fx.value.toUpperCase();
-            fx_clp.innerHTML = dataDay.utm.valor;
+            fx_clp.innerHTML = dataDay.utm.valor.toLocaleString("es-CL");
     };
 };
 
