@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/api.png" type="image/x-icon">
     <title>JavaScript - APIs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <div class="container">
-        <div class="title">Conversor de monedas nacional</div>
-        <label for="fx_options">Selecciona el tipo de cambio</label><br>
-            <select name="fx_options" id="fx_options">
-                <option value="" selected disabled ></option>
-                <option value="uf">Unidad de fomento (UF)</option>
-                <option value="dolar">Dólar observado</option>
-                <option value="euro">Euro</option>
-                <option value="utm">Unidad Tributaria Mensual (UTM)</option>
-            </select>
-        <div class="fx">Tipo de cambio
-            <div class="fx_conversion">
-                <div class="fx_from">1 <span id="fx_code">dolar</span></div>
-                <div class="fx_to"><span id="fx_clp">860</span> pesos</div>
-            </div>
-            <div class="img_conversion"></div>
-        </div>
-        <div class="calc">
-            <div class="calc_title">Ingresa la cantidad a cambiar</div>
-            <input type="number" id="input" placeholder="Ingresa el valor aquí"><br>
-            <button>Calcular</button>
-            <div id="calc_resultados">
-                <div id="calc_result"></div>
-                <div id="calc_code"></div>
-            </div>
-        </div>
-        <div class="graph">
-            <canvas id="myChart"></canvas>
+        <div class="calculadora">
+            <h1>Conversor de monedas nacional</h1>
+
+            <section class="tipo_cambio_sel">
+                <h3>Selecciona el tipo de cambio</h3>
+                <select name="fx_options" id="fx_options">
+                    <option value="" selected disabled></option>
+                    <option id="opt1"></option>
+                    <option id="opt2"></option>
+                    <option id="opt3"></option>
+                    <option id="opt4"></option>
+                </select>
+            </section>
+
+            <section class="tipo_cambio_val">
+                <h3>Tipo de cambio</h3>
+                <div class="fx_conversion">
+                    <div id="fx_code"></div>
+                    <div id="fx_clp"></div>
+                </div>
+                <div class="img_conversion"></div>
+            </section>
+
+            <section class="calc">
+                <h3>Ingresa la cantidad a cambiar</h3>
+                <input type="number" id="input" placeholder="Ingresa el valor aquí"><br>
+                <button>Calcular</button>
+                <div id="calc_resultados">
+                    <div id="calc_result"></div>
+                    <div id="calc_code"></div>
+                </div>
+            </section>
+
+            <section class="graph">
+                <h3>Evolución últimos 10 días</h3>
+                <canvas id="myChart"></canvas>
+            </section>
         </div>
     </div>
     <script src="assets/script/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>

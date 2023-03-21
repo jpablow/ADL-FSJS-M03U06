@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(../img/cl_billetes01.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.calculadora {
+    background-color: #EAE6E5;
+    border-radius: 50px;
+    padding: 50px;
+    min-width: 70vw;
+    max-width: 90vw;
+    margin: 25px;
+}
+
+h1 {
+    font-weight: 500;
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.tipo_cambio_sel {
+    background-color: #F6511D;
+    border-radius: 25px 25px 0 0;
+    padding: 20px 0 20px 0;
+}
+
+#fx_options {
+    height: 30px;
+    width: 250px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.tipo_cambio_val {
+    background-color: #00A6ED;
+    padding: 10px 0 10px 0;
+}
+
+.calc {
+    background-color: #7FB800;
+    border-radius: 0 0 25px 25px;
+    padding: 10px 0 20px 0;
+}
+
+#input {
+    height: 24px;
+    width: 250px;
+    text-align: center;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.graph {
+    background-image: url(../img/beams-pricing.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    padding: 20px 20px;
+    margin-top: 15px;
+}

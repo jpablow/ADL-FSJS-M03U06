@@ -5,6 +5,10 @@ const fx_code = document.querySelector("#fx_code");
 const calc_code = document.querySelector("#calc_code");
 const calc_result = document.querySelector("#calc_result");
 const fx_clp = document.querySelector("#fx_clp");
+const opt1 = document.querySelector("#opt1");
+const opt2 = document.querySelector("#opt2");
+const opt3 = document.querySelector("#opt3");
+const opt4 = document.querySelector("#opt4");
 let fx = document.querySelector("#fx_options");
 let grafico;
 let etiquetas = [];
@@ -37,6 +41,14 @@ async function getDayFX() {
         const result = await fetch("https://mindicador.cl/api/");
         const dataD = await result.json();
         dataDay = dataD;
+        opt1.innerHTML = dataDay.uf.nombre;
+        opt1.value = dataDay.uf.codigo;
+        opt2.innerHTML = dataDay.dolar.nombre;
+        opt2.value = dataDay.dolar.codigo;
+        opt3.innerHTML = dataDay.euro.nombre;
+        opt3.value = dataDay.euro.codigo;
+        opt4.innerHTML = dataDay.utm.nombre;
+        opt4.value = dataDay.utm.codigo;
     } catch (e) {
         alert(e.message);
     };
@@ -100,20 +112,20 @@ function renderCanvas() {
 function showFX() {
     switch (fx.value) {
         case "uf":
-            fx_code.innerHTML = fx.value.toUpperCase();
-            fx_clp.innerHTML = dataDay.uf.valor.toLocaleString("es-CL");
+            fx_code.innerHTML = `1 ${fx.value.toUpperCase()}`;
+            fx_clp.innerHTML = `$${dataDay.uf.valor.toLocaleString("es-CL")} ${dataDay.uf.unidad_medida}`;
             break;
         case "dolar":
-            fx_code.innerHTML = toCapitalLetter(fx.value);
-            fx_clp.innerHTML = dataDay.dolar.valor.toLocaleString("es-CL");
+            fx_code.innerHTML = `1 ${toCapitalLetter(fx.value)}`;
+            fx_clp.innerHTML = `$${dataDay.dolar.valor.toLocaleString("es-CL")} ${dataDay.dolar.unidad_medida}`;
             break;
         case "euro":
-            fx_code.innerHTML = toCapitalLetter(fx.value);
-            fx_clp.innerHTML = dataDay.euro.valor.toLocaleString("es-CL");
+            fx_code.innerHTML = `1 ${toCapitalLetter(fx.value)}`;
+            fx_clp.innerHTML = `$${dataDay.euro.valor.toLocaleString("es-CL")} ${dataDay.euro.unidad_medida}`;
             break;
         case "utm":
-            fx_code.innerHTML = fx.value.toUpperCase();
-            fx_clp.innerHTML = dataDay.utm.valor.toLocaleString("es-CL");
+            fx_code.innerHTML = `1 ${fx.value.toUpperCase()}`;
+            fx_clp.innerHTML = `$${dataDay.utm.valor.toLocaleString("es-CL")} ${dataDay.utm.unidad_medida}`;
     };
 };
 
