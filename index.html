@@ -9,42 +9,44 @@
     <title>JavaScript - APIs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="calculadora">
-            <h1>Conversor de monedas nacional</h1>
+            <h1>Conversor de monedas</h1>
+            <section class="tipo_cambio">
+                <section class="tipo_cambio_sel">
+                    <h3>Selecciona el tipo de cambio</h3>
+                    <select name="fx_options" id="fx_options">
+                        <option value="" selected disabled></option>
+                        <option id="opt1"></option>
+                        <option id="opt2"></option>
+                        <option id="opt3"></option>
+                        <option id="opt4"></option>
+                    </select>
+                </section>
 
-            <section class="tipo_cambio_sel">
-                <h3>Selecciona el tipo de cambio</h3>
-                <select name="fx_options" id="fx_options">
-                    <option value="" selected disabled></option>
-                    <option id="opt1"></option>
-                    <option id="opt2"></option>
-                    <option id="opt3"></option>
-                    <option id="opt4"></option>
-                </select>
+                <section class="tipo_cambio_val">
+                    <h3>Tipo de cambio</h3>
+                    <div class="fx_conversion">
+                        <div id="fx_code"></div>
+                        <div id="fx_clp"></div>
+                    </div>
+                    <div class="img_conversion"></div>
+                </section>
             </section>
-
-            <section class="tipo_cambio_val">
-                <h3>Tipo de cambio</h3>
-                <div class="fx_conversion">
-                    <div id="fx_code"></div>
-                    <div id="fx_clp"></div>
-                </div>
-                <div class="img_conversion"></div>
-            </section>
-
             <section class="calc">
                 <h3>Ingresa la cantidad a cambiar</h3>
-                <input type="number" id="input" placeholder="Ingresa el valor aquí"><br>
-                <button>Calcular</button>
-                <div id="calc_resultados">
+                <div class="calc_fx">
+                    <div class="calc_data">
+                        <input type="number" id="input" placeholder="Ingresa el valor"><br>
+                        <button>Calcular</button>
+                    </div>
+                    <div class="arrows"></div>
                     <div id="calc_result"></div>
-                    <div id="calc_code"></div>
                 </div>
             </section>
 

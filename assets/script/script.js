@@ -2,7 +2,6 @@ const ctx = document.getElementById('myChart');
 const btn = document.querySelector("button");
 const input = document.querySelector("#input");
 const fx_code = document.querySelector("#fx_code");
-const calc_code = document.querySelector("#calc_code");
 const calc_result = document.querySelector("#calc_result");
 const fx_clp = document.querySelector("#fx_clp");
 const opt1 = document.querySelector("#opt1");
@@ -32,8 +31,7 @@ function calcFX () {
             var calc_val = Number(input.value) / Number(dataDay.utm.valor);
             var c_code = fx.value.toUpperCase();
     };
-    calc_result.innerHTML = calc_val.toLocaleString("es-CL"); //Averiguar cómo redondear y dar formato de número.
-    calc_code.innerHTML = c_code;
+    calc_result.innerHTML = `${calc_val.toLocaleString("es-CL")} ${c_code}`;
 };
 
 async function getDayFX() {
@@ -55,6 +53,10 @@ async function getDayFX() {
 };
 
 async function getFX () {
+    if (input.value <= 0) {
+        alert("Sólo se pueden ingresar valores mayores que cero, intenta nuevamente!");
+        return;
+    };
     try {
         const res = await fetch("https://mindicador.cl/api/" + fx.value);
         const data = await res.json();
@@ -112,19 +114,19 @@ function renderCanvas() {
 function showFX() {
     switch (fx.value) {
         case "uf":
-            fx_code.innerHTML = `1 ${fx.value.toUpperCase()}`;
+            fx_code.innerHTML = `1 ${fx.value.toUpperCase()} equivale a`;
             fx_clp.innerHTML = `$${dataDay.uf.valor.toLocaleString("es-CL")} ${dataDay.uf.unidad_medida}`;
             break;
         case "dolar":
-            fx_code.innerHTML = `1 ${toCapitalLetter(fx.value)}`;
+            fx_code.innerHTML = `1 ${toCapitalLetter(fx.value)} equivale a`;
             fx_clp.innerHTML = `$${dataDay.dolar.valor.toLocaleString("es-CL")} ${dataDay.dolar.unidad_medida}`;
             break;
         case "euro":
-            fx_code.innerHTML = `1 ${toCapitalLetter(fx.value)}`;
+            fx_code.innerHTML = `1 ${toCapitalLetter(fx.value)} equivale a`;
             fx_clp.innerHTML = `$${dataDay.euro.valor.toLocaleString("es-CL")} ${dataDay.euro.unidad_medida}`;
             break;
         case "utm":
-            fx_code.innerHTML = `1 ${fx.value.toUpperCase()}`;
+            fx_code.innerHTML = `1 ${fx.value.toUpperCase()} equivale a`;
             fx_clp.innerHTML = `$${dataDay.utm.valor.toLocaleString("es-CL")} ${dataDay.utm.unidad_medida}`;
     };
 };
