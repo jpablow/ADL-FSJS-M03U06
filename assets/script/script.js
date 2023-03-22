@@ -1,4 +1,5 @@
 const ctx = document.getElementById('myChart');
+const fx_date = document.querySelector("#fx_date");
 const btn = document.querySelector("button");
 const input = document.querySelector("#input");
 const fx_code = document.querySelector("#fx_code");
@@ -47,6 +48,7 @@ async function getDayFX() {
         opt3.value = dataDay.euro.codigo;
         opt4.innerHTML = dataDay.utm.nombre;
         opt4.value = dataDay.utm.codigo;
+        fx_date.innerHTML = `Actualizado al ${dataDay.fecha.substr(0, 10)}`;
     } catch (e) {
         alert(e.message);
     };
@@ -69,7 +71,7 @@ async function getFX () {
         calcFX();
         renderCanvas(); //Si el FX no ha cambiado, no renderizar.
     } catch (e) {
-        alert(e.message);
+        alert("Hubo un error -> " + e.message + " intenta nuevamente!");
     };
 };
 
